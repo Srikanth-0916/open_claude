@@ -60,22 +60,25 @@ export function buildAssistantMessageFromEvents(events: any[]): {
       }
     }
     if (event.type === "content_block_start" && event.content_block.type === "tool_use") {
-      content[event.index] = { ...event.content_block }
+      content[event.index] = { ...event.content_block, _inputJson: "" }
+    }
+    if (event.type === "content_block_delta" && event.delta?.type === "input_json_delta") {
+      const block = content[event.index]
+      if (block?.type === "tool_use") {
+        block._inputJson += event.delta.partial_json
+      }
     }
     if (event.type === "content_block_stop") {
       const block = content[event.index]
       if (block?.type === "tool_use") {
-        if (!block.input || Object.keys(block.input).length === 0) {
-          const argsFragments = events
-            .filter((e: any) => e.type === "content_block_delta" && e.index === event.index && e.delta?.type === "input_json_delta")
-            .map((e: any) => e.delta.partial_json)
-          if (argsFragments.length > 0) {
-            try {
-              block.input = JSON.parse(argsFragments.join(""))
-            } catch {
-              block.input = {}
-            }
+        if (block._inputJson) {
+          try {
+            block.input = JSON.parse(block._inputJson)
+          } catch {
+            console.error(`[opencode] Failed to parse tool args: ${block._inputJson}`)
+            block.input = {}
           }
+          delete block._inputJson
         }
       }
     }

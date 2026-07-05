@@ -5,6 +5,7 @@ import { createOpencodeClient, type ChatMessage, type ChatTool } from "./opencod
 import { claudeMessagesToOpenAI, mergeUserMessages } from "./opencode/messages"
 import { convertTools } from "./opencode/tools"
 import { buildAssistantMessageFromEvents, type AdapterEvent } from "./opencode/stream"
+import { normalizeContentFromAPI } from "../../utils/messages.js"
 
 export function isOpencodeEnabled(): boolean {
   const enabled = process.env.OPEN_CLAUDE_ENABLED
@@ -177,6 +178,11 @@ export async function* queryModelWithOpencodeStreaming({
 
   const assistantMsg = buildAssistantMessageFromEvents(collectedEvents as any)
   if (assistantMsg.content.length > 0) {
+    const normalizedContent = normalizeContentFromAPI(
+      assistantMsg.content as any,
+      tools,
+      options.agentId,
+    )
     yield {
       type: 'assistant',
       uuid: randomUUID(),
@@ -184,7 +190,7 @@ export async function* queryModelWithOpencodeStreaming({
       message: {
         id: `oc_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
         role: 'assistant',
-        content: assistantMsg.content,
+        content: normalizedContent,
         model: model,
         stop_reason: assistantMsg.stopReason ?? null,
         stop_sequence: null,
