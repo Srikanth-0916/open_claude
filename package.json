@@ -10,6 +10,7 @@
     "open-claude": "src/entrypoints/cli.tsx"
   },
   "scripts": {
+    "postinstall": "bun run scripts/postinstall.ts",
     "dev": "bun run src/entrypoints/cli.tsx",
     "typecheck": "tsc --noEmit",
     "lint": "biome check src/",
