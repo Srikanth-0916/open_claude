@@ -356,35 +356,23 @@ import {
 // Dead code elimination: conditional imports
 /* eslint-disable @typescript-eslint/no-require-imports */
 const coordinatorModeModule = feature("COORDINATOR_MODE")
-	? (require("../coordinator/coordinatorMode.js") as typeof import(
-			"../coordinator/coordinatorMode.js",
-		))
+	? (require("../coordinator/coordinatorMode.js") as typeof import("../coordinator/coordinatorMode.js"))
 	: null;
 const proactiveModule =
 	feature("PROACTIVE") || feature("KAIROS")
-		? (require("../proactive/index.js") as typeof import(
-				"../proactive/index.js",
-			))
+		? (require("../proactive/index.js") as typeof import("../proactive/index.js"))
 		: null;
 const cronSchedulerModule = feature("AGENT_TRIGGERS")
-	? (require("../utils/cronScheduler.js") as typeof import(
-			"../utils/cronScheduler.js",
-		))
+	? (require("../utils/cronScheduler.js") as typeof import("../utils/cronScheduler.js"))
 	: null;
 const cronJitterConfigModule = feature("AGENT_TRIGGERS")
-	? (require("../utils/cronJitterConfig.js") as typeof import(
-			"../utils/cronJitterConfig.js",
-		))
+	? (require("../utils/cronJitterConfig.js") as typeof import("../utils/cronJitterConfig.js"))
 	: null;
 const cronGate = feature("AGENT_TRIGGERS")
-	? (require("../tools/ScheduleCronTool/prompt.js") as typeof import(
-			"../tools/ScheduleCronTool/prompt.js",
-		))
+	? (require("../tools/ScheduleCronTool/prompt.js") as typeof import("../tools/ScheduleCronTool/prompt.js"))
 	: null;
 const extractMemoriesModule = feature("EXTRACT_MEMORIES")
-	? (require("../services/extractMemories/extractMemories.js") as typeof import(
-			"../services/extractMemories/extractMemories.js",
-		))
+	? (require("../services/extractMemories/extractMemories.js") as typeof import("../services/extractMemories/extractMemories.js"))
 	: null;
 /* eslint-enable @typescript-eslint/no-require-imports */
 
@@ -4972,9 +4960,7 @@ async function loadInitialMessages(
 							getActiveAgentsFromList,
 						} =
 							// eslint-disable-next-line @typescript-eslint/no-require-imports
-							require("../tools/AgentTool/loadAgentsDir.js") as typeof import(
-								"../tools/AgentTool/loadAgentsDir.js",
-							);
+							require("../tools/AgentTool/loadAgentsDir.js") as typeof import("../tools/AgentTool/loadAgentsDir.js");
 						getAgentDefinitionsWithOverrides.cache.clear?.();
 						const freshAgentDefs = await getAgentDefinitionsWithOverrides(
 							getCwd(),
@@ -5175,9 +5161,7 @@ async function loadInitialMessages(
 					// Refresh agent definitions to reflect the mode switch
 					const { getAgentDefinitionsWithOverrides, getActiveAgentsFromList } =
 						// eslint-disable-next-line @typescript-eslint/no-require-imports
-						require("../tools/AgentTool/loadAgentsDir.js") as typeof import(
-							"../tools/AgentTool/loadAgentsDir.js",
-						);
+						require("../tools/AgentTool/loadAgentsDir.js") as typeof import("../tools/AgentTool/loadAgentsDir.js");
 					getAgentDefinitionsWithOverrides.cache.clear?.();
 					const freshAgentDefs = await getAgentDefinitionsWithOverrides(
 						getCwd(),

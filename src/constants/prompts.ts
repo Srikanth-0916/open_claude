@@ -69,9 +69,7 @@ import { TICK_TAG } from "./xml.js";
 /* eslint-disable @typescript-eslint/no-require-imports */
 const getCachedMCConfigForFRC = feature("CACHED_MICROCOMPACT")
 	? (
-			require("../services/compact/cachedMCConfig.js") as typeof import(
-				"../services/compact/cachedMCConfig.js",
-			)
+			require("../services/compact/cachedMCConfig.js") as typeof import("../services/compact/cachedMCConfig.js")
 		).getCachedMCConfig
 	: null;
 
@@ -82,32 +80,24 @@ const proactiveModule =
 const BRIEF_PROACTIVE_SECTION: string | null =
 	feature("KAIROS") || feature("KAIROS_BRIEF")
 		? (
-				require("../tools/BriefTool/prompt.js") as typeof import(
-					"../tools/BriefTool/prompt.js",
-				)
+				require("../tools/BriefTool/prompt.js") as typeof import("../tools/BriefTool/prompt.js")
 			).BRIEF_PROACTIVE_SECTION
 		: null;
 const briefToolModule =
 	feature("KAIROS") || feature("KAIROS_BRIEF")
-		? (require("../tools/BriefTool/BriefTool.js") as typeof import(
-				"../tools/BriefTool/BriefTool.js",
-			))
+		? (require("../tools/BriefTool/BriefTool.js") as typeof import("../tools/BriefTool/BriefTool.js"))
 		: null;
 const DISCOVER_SKILLS_TOOL_NAME: string | null = feature(
 	"EXPERIMENTAL_SKILL_SEARCH",
 )
 	? (
-			require("../tools/DiscoverSkillsTool/prompt.js") as typeof import(
-				"../tools/DiscoverSkillsTool/prompt.js",
-			)
+			require("../tools/DiscoverSkillsTool/prompt.js") as typeof import("../tools/DiscoverSkillsTool/prompt.js")
 		).DISCOVER_SKILLS_TOOL_NAME
 	: null;
 // Capture the module (not .isSkillSearchEnabled directly) so spyOn() in tests
 // patches what we actually call — a captured function ref would point past the spy.
 const skillSearchFeatureCheck = feature("EXPERIMENTAL_SKILL_SEARCH")
-	? (require("../services/skillSearch/featureCheck.js") as typeof import(
-			"../services/skillSearch/featureCheck.js",
-		))
+	? (require("../services/skillSearch/featureCheck.js") as typeof import("../services/skillSearch/featureCheck.js"))
 	: null;
 import { CYBER_RISK_INSTRUCTION } from "./cyberRiskInstruction.js";
 /* eslint-enable @typescript-eslint/no-require-imports */

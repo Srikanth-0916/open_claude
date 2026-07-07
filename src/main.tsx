@@ -124,20 +124,14 @@ import { isWorktreeModeEnabled } from "./utils/worktreeModeEnabled.js";
 const getTeammateUtils = () =>
 	require("./utils/teammate.js") as typeof import("./utils/teammate.js");
 const getTeammatePromptAddendum = () =>
-	require("./utils/swarm/teammatePromptAddendum.js") as typeof import(
-		"./utils/swarm/teammatePromptAddendum.js",
-	);
+	require("./utils/swarm/teammatePromptAddendum.js") as typeof import("./utils/swarm/teammatePromptAddendum.js");
 const getTeammateModeSnapshot = () =>
-	require("./utils/swarm/backends/teammateModeSnapshot.js") as typeof import(
-		"./utils/swarm/backends/teammateModeSnapshot.js",
-	);
+	require("./utils/swarm/backends/teammateModeSnapshot.js") as typeof import("./utils/swarm/backends/teammateModeSnapshot.js");
 /* eslint-enable @typescript-eslint/no-require-imports */
 // Dead code elimination: conditional import for COORDINATOR_MODE
 /* eslint-disable @typescript-eslint/no-require-imports */
 const coordinatorModeModule = feature("COORDINATOR_MODE")
-	? (require("./coordinator/coordinatorMode.js") as typeof import(
-			"./coordinator/coordinatorMode.js",
-		))
+	? (require("./coordinator/coordinatorMode.js") as typeof import("./coordinator/coordinatorMode.js"))
 	: null;
 /* eslint-enable @typescript-eslint/no-require-imports */
 // Dead code elimination: conditional import for KAIROS (assistant mode)
@@ -388,9 +382,7 @@ import {
 
 /* eslint-disable @typescript-eslint/no-require-imports */
 const autoModeStateModule = feature("TRANSCRIPT_CLASSIFIER")
-	? (require("./utils/permissions/autoModeState.js") as typeof import(
-			"./utils/permissions/autoModeState.js",
-		))
+	? (require("./utils/permissions/autoModeState.js") as typeof import("./utils/permissions/autoModeState.js"))
 	: null;
 
 // TeleportRepoMismatchDialog, TeleportResumeWrapper dynamically imported at call sites
@@ -2658,13 +2650,9 @@ async function run(): Promise<CommanderCommand> {
 			) {
 				/* eslint-disable @typescript-eslint/no-require-imports */
 				const { BRIEF_TOOL_NAME, LEGACY_BRIEF_TOOL_NAME } =
-					require("./tools/BriefTool/prompt.js") as typeof import(
-						"./tools/BriefTool/prompt.js",
-					);
+					require("./tools/BriefTool/prompt.js") as typeof import("./tools/BriefTool/prompt.js");
 				const { isBriefEntitled } =
-					require("./tools/BriefTool/BriefTool.js") as typeof import(
-						"./tools/BriefTool/BriefTool.js",
-					);
+					require("./tools/BriefTool/BriefTool.js") as typeof import("./tools/BriefTool/BriefTool.js");
 				/* eslint-enable @typescript-eslint/no-require-imports */
 				const parsed = parseToolListFromCLI(baseTools);
 				if (
@@ -3256,9 +3244,7 @@ async function run(): Promise<CommanderCommand> {
 			) {
 				/* eslint-disable @typescript-eslint/no-require-imports */
 				const { isBriefEntitled } =
-					require("./tools/BriefTool/BriefTool.js") as typeof import(
-						"./tools/BriefTool/BriefTool.js",
-					);
+					require("./tools/BriefTool/BriefTool.js") as typeof import("./tools/BriefTool/BriefTool.js");
 				/* eslint-enable @typescript-eslint/no-require-imports */
 				if (isBriefEntitled()) {
 					setUserMsgOptIn(true);
@@ -3281,9 +3267,7 @@ async function run(): Promise<CommanderCommand> {
 				const briefVisibility =
 					feature("KAIROS") || feature("KAIROS_BRIEF")
 						? (
-								require("./tools/BriefTool/BriefTool.js") as typeof import(
-									"./tools/BriefTool/BriefTool.js",
-								)
+								require("./tools/BriefTool/BriefTool.js") as typeof import("./tools/BriefTool/BriefTool.js")
 							).isBriefEnabled()
 							? "Call SendUserMessage at checkpoints to mark where things stand."
 							: "The user will see any text you output."
@@ -4167,9 +4151,7 @@ async function run(): Promise<CommanderCommand> {
 			if (feature("CCR_MIRROR") && !fullRemoteControl) {
 				/* eslint-disable @typescript-eslint/no-require-imports */
 				const { isCcrMirrorEnabled } =
-					require("./bridge/bridgeEnabled.js") as typeof import(
-						"./bridge/bridgeEnabled.js",
-					);
+					require("./bridge/bridgeEnabled.js") as typeof import("./bridge/bridgeEnabled.js");
 				/* eslint-enable @typescript-eslint/no-require-imports */
 				ccrMirrorEnabled = isCcrMirrorEnabled();
 			}
@@ -6768,9 +6750,7 @@ function maybeActivateBrief(options: unknown): void {
 	// into external builds via BriefTool.ts → prompt.ts.
 	/* eslint-disable @typescript-eslint/no-require-imports */
 	const { isBriefEntitled } =
-		require("./tools/BriefTool/BriefTool.js") as typeof import(
-			"./tools/BriefTool/BriefTool.js",
-		);
+		require("./tools/BriefTool/BriefTool.js") as typeof import("./tools/BriefTool/BriefTool.js");
 	/* eslint-enable @typescript-eslint/no-require-imports */
 	const entitled = isBriefEntitled();
 	if (entitled) {

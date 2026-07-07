@@ -43,9 +43,7 @@ export function runPostCompactCleanup(querySource?: QuerySource): void {
 		if (isMainThreadCompact) {
 			/* eslint-disable @typescript-eslint/no-require-imports */
 			(
-				require("../contextCollapse/index.js") as typeof import(
-					"../contextCollapse/index.js",
-				)
+				require("../contextCollapse/index.js") as typeof import("../contextCollapse/index.js")
 			).resetContextCollapse();
 			/* eslint-enable @typescript-eslint/no-require-imports */
 		}

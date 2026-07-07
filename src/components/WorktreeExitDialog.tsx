@@ -23,9 +23,7 @@ import { Dialog } from "./design-system/Dialog.js";
 function recordWorktreeExit(): void {
 	/* eslint-disable @typescript-eslint/no-require-imports */
 	(
-		require("../utils/sessionStorage.js") as typeof import(
-			"../utils/sessionStorage.js",
-		)
+		require("../utils/sessionStorage.js") as typeof import("../utils/sessionStorage.js")
 	).saveWorktreeState(null);
 	/* eslint-enable @typescript-eslint/no-require-imports */
 }

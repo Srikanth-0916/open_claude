@@ -34,14 +34,10 @@ import type { ThemeSetting } from "./theme.js";
 
 /* eslint-disable @typescript-eslint/no-require-imports */
 const teamMemPaths = feature("TEAMMEM")
-	? (require("../memdir/teamMemPaths.js") as typeof import(
-			"../memdir/teamMemPaths.js",
-		))
+	? (require("../memdir/teamMemPaths.js") as typeof import("../memdir/teamMemPaths.js"))
 	: null;
 const ccrAutoConnect = feature("CCR_AUTO_CONNECT")
-	? (require("../bridge/bridgeEnabled.js") as typeof import(
-			"../bridge/bridgeEnabled.js",
-		))
+	? (require("../bridge/bridgeEnabled.js") as typeof import("../bridge/bridgeEnabled.js"))
 	: null;
 
 /* eslint-enable @typescript-eslint/no-require-imports */

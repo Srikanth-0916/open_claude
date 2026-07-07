@@ -122,9 +122,7 @@ export function UserTextMessage(t0) {
 			} else {
 				t1 = $[9];
 			}
-			const { UserGitHubWebhookMessage } = t1 as typeof import(
-				"./UserGitHubWebhookMessage.js",
-			);
+			const { UserGitHubWebhookMessage } = t1 as typeof import("./UserGitHubWebhookMessage.js");
 			let t2;
 			if ($[10] !== addMargin || $[11] !== param) {
 				t2 = <UserGitHubWebhookMessage addMargin={addMargin} param={param} />;
@@ -231,9 +229,7 @@ export function UserTextMessage(t0) {
 			} else {
 				t1 = $[32];
 			}
-			const { UserForkBoilerplateMessage } = t1 as typeof import(
-				"./UserForkBoilerplateMessage.js",
-			);
+			const { UserForkBoilerplateMessage } = t1 as typeof import("./UserForkBoilerplateMessage.js");
 			let t2;
 			if ($[33] !== addMargin || $[34] !== param) {
 				t2 = <UserForkBoilerplateMessage addMargin={addMargin} param={param} />;
@@ -255,9 +251,7 @@ export function UserTextMessage(t0) {
 			} else {
 				t1 = $[36];
 			}
-			const { UserCrossSessionMessage } = t1 as typeof import(
-				"./UserCrossSessionMessage.js",
-			);
+			const { UserCrossSessionMessage } = t1 as typeof import("./UserCrossSessionMessage.js");
 			let t2;
 			if ($[37] !== addMargin || $[38] !== param) {
 				t2 = <UserCrossSessionMessage addMargin={addMargin} param={param} />;
@@ -279,9 +273,7 @@ export function UserTextMessage(t0) {
 			} else {
 				t1 = $[40];
 			}
-			const { UserChannelMessage } = t1 as typeof import(
-				"./UserChannelMessage.js",
-			);
+			const { UserChannelMessage } = t1 as typeof import("./UserChannelMessage.js");
 			let t2;
 			if ($[41] !== addMargin || $[42] !== param) {
 				t2 = <UserChannelMessage addMargin={addMargin} param={param} />;

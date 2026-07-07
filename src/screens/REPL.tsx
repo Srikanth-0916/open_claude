@@ -191,26 +191,20 @@ import { endInteractionSpan } from "../utils/telemetry/sessionTracing.js";
 import { parseTokenBudget } from "../utils/tokenBudget.js";
 // Dead code elimination: conditional imports
 /* eslint-disable custom-rules/no-process-env-top-level, @typescript-eslint/no-require-imports */
-const useVoiceIntegration: typeof import(
-	"../hooks/useVoiceIntegration.js",
-).useVoiceIntegration = feature("VOICE_MODE")
+const useVoiceIntegration: typeof import("../hooks/useVoiceIntegration.js").useVoiceIntegration = feature("VOICE_MODE")
 	? require("../hooks/useVoiceIntegration.js").useVoiceIntegration
 	: () => ({
 			stripTrailing: () => 0,
 			handleKeyEvent: () => {},
 			resetAnchor: () => {},
 		});
-const VoiceKeybindingHandler: typeof import(
-	"../hooks/useVoiceIntegration.js",
-).VoiceKeybindingHandler = feature("VOICE_MODE")
+const VoiceKeybindingHandler: typeof import("../hooks/useVoiceIntegration.js").VoiceKeybindingHandler = feature("VOICE_MODE")
 	? require("../hooks/useVoiceIntegration.js").VoiceKeybindingHandler
 	: () => null;
 // Frustration detection is ant-only (dogfooding). Conditional require so external
 // builds eliminate the module entirely (including its two O(n) useMemos that run
 // on every messages change, plus the GrowthBook fetch).
-const useFrustrationDetection: typeof import(
-	"../components/FeedbackSurvey/useFrustrationDetection.js",
-).useFrustrationDetection =
+const useFrustrationDetection: typeof import("../components/FeedbackSurvey/useFrustrationDetection.js").useFrustrationDetection =
 	"external" === "ant"
 		? require("../components/FeedbackSurvey/useFrustrationDetection.js")
 				.useFrustrationDetection
@@ -220,9 +214,7 @@ const useFrustrationDetection: typeof import(
 			});
 // Ant-only org warning. Conditional require so the org UUID list is
 // eliminated from external builds (one UUID is on excluded-strings).
-const useAntOrgWarningNotification: typeof import(
-	"../hooks/notifs/useAntOrgWarningNotification.js",
-).useAntOrgWarningNotification =
+const useAntOrgWarningNotification: typeof import("../hooks/notifs/useAntOrgWarningNotification.js").useAntOrgWarningNotification =
 	"external" === "ant"
 		? require("../hooks/notifs/useAntOrgWarningNotification.js")
 				.useAntOrgWarningNotification
@@ -554,9 +546,7 @@ import {
 } from "../utils/autoRunIssue.js";
 /* eslint-disable @typescript-eslint/no-require-imports */
 const WebBrowserPanelModule = feature("WEB_BROWSER_TOOL")
-	? (require("../tools/WebBrowserTool/WebBrowserPanel.js") as typeof import(
-			"../tools/WebBrowserTool/WebBrowserPanel.js",
-		))
+	? (require("../tools/WebBrowserTool/WebBrowserPanel.js") as typeof import("../tools/WebBrowserTool/WebBrowserPanel.js"))
 	: null;
 import {
 	CompanionFloatingBubble,
@@ -2414,9 +2404,7 @@ export function REPL({
 				if (feature("COORDINATOR_MODE")) {
 					/* eslint-disable @typescript-eslint/no-require-imports */
 					const coordinatorModule =
-						require("../coordinator/coordinatorMode.js") as typeof import(
-							"../coordinator/coordinatorMode.js",
-						);
+						require("../coordinator/coordinatorMode.js") as typeof import("../coordinator/coordinatorMode.js");
 					/* eslint-enable @typescript-eslint/no-require-imports */
 					const warning = coordinatorModule.matchSessionMode(log.mode);
 					if (warning) {
@@ -2426,9 +2414,7 @@ export function REPL({
 						const {
 							getAgentDefinitionsWithOverrides,
 							getActiveAgentsFromList,
-						} = require("../tools/AgentTool/loadAgentsDir.js") as typeof import(
-							"../tools/AgentTool/loadAgentsDir.js",
-						);
+						} = require("../tools/AgentTool/loadAgentsDir.js") as typeof import("../tools/AgentTool/loadAgentsDir.js");
 						/* eslint-enable @typescript-eslint/no-require-imports */
 						getAgentDefinitionsWithOverrides.cache.clear?.();
 						const freshAgentDefs = await getAgentDefinitionsWithOverrides(
@@ -2582,9 +2568,7 @@ export function REPL({
 					/* eslint-disable @typescript-eslint/no-require-imports */
 					const { saveMode } = require("../utils/sessionStorage.js");
 					const { isCoordinatorMode } =
-						require("../coordinator/coordinatorMode.js") as typeof import(
-							"../coordinator/coordinatorMode.js",
-						);
+						require("../coordinator/coordinatorMode.js") as typeof import("../coordinator/coordinatorMode.js");
 					/* eslint-enable @typescript-eslint/no-require-imports */
 					saveMode(isCoordinatorMode() ? "coordinator" : "normal");
 				}
@@ -4997,9 +4981,7 @@ export function REPL({
 				// threshold crossing.
 				/* eslint-disable @typescript-eslint/no-require-imports */
 				(
-					require("../services/contextCollapse/index.js") as typeof import(
-						"../services/contextCollapse/index.js",
-					)
+					require("../services/contextCollapse/index.js") as typeof import("../services/contextCollapse/index.js")
 				).resetContextCollapse();
 				/* eslint-enable @typescript-eslint/no-require-imports */
 			}

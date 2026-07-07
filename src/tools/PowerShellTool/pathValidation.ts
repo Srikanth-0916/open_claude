@@ -56,9 +56,7 @@ type FileOperationType = "read" | "write" | "create";
 
 type PathCheckResult = {
 	allowed: boolean;
-	decisionReason?: import(
-		"../../utils/permissions/PermissionResult.js",
-	).PermissionDecisionReason;
+	decisionReason?: import("../../utils/permissions/PermissionResult.js").PermissionDecisionReason;
 };
 
 type ResolvedPathCheckResult = PathCheckResult & {

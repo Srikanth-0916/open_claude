@@ -374,13 +374,9 @@ function MessageImpl(t0) {
 			}
 			if (feature("HISTORY_SNIP")) {
 				const { isSnipBoundaryMessage } =
-					require("../services/compact/snipProjection.js") as typeof import(
-						"../services/compact/snipProjection.js",
-					);
+					require("../services/compact/snipProjection.js") as typeof import("../services/compact/snipProjection.js");
 				const { isSnipMarkerMessage } =
-					require("../services/compact/snipCompact.js") as typeof import(
-						"../services/compact/snipCompact.js",
-					);
+					require("../services/compact/snipCompact.js") as typeof import("../services/compact/snipCompact.js");
 				if (isSnipBoundaryMessage(message)) {
 					let t2;
 					if ($[65] === Symbol.for("react.memo_cache_sentinel")) {
@@ -389,9 +385,7 @@ function MessageImpl(t0) {
 					} else {
 						t2 = $[65];
 					}
-					const { SnipBoundaryMessage } = t2 as typeof import(
-						"./messages/SnipBoundaryMessage.js",
-					);
+					const { SnipBoundaryMessage } = t2 as typeof import("./messages/SnipBoundaryMessage.js");
 					let t3;
 					if ($[66] !== message) {
 						t3 = <SnipBoundaryMessage message={message} />;

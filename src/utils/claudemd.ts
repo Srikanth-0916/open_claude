@@ -80,9 +80,7 @@ import { getInitialSettings } from "./settings/settings.js";
 
 /* eslint-disable @typescript-eslint/no-require-imports */
 const teamMemPaths = feature("TEAMMEM")
-	? (require("../memdir/teamMemPaths.js") as typeof import(
-			"../memdir/teamMemPaths.js",
-		))
+	? (require("../memdir/teamMemPaths.js") as typeof import("../memdir/teamMemPaths.js"))
 	: null;
 /* eslint-enable @typescript-eslint/no-require-imports */
 

@@ -756,9 +756,7 @@ export const SendMessageTool: Tool<InputSchema, SendMessageToolOutput> =
 					}
 					/* eslint-disable @typescript-eslint/no-require-imports */
 					const { postInterClaudeMessage } =
-						require("../../bridge/peerSessions.js") as typeof import(
-							"../../bridge/peerSessions.js",
-						);
+						require("../../bridge/peerSessions.js") as typeof import("../../bridge/peerSessions.js");
 					/* eslint-enable @typescript-eslint/no-require-imports */
 					const result = await postInterClaudeMessage(
 						addr.target,
@@ -777,9 +775,7 @@ export const SendMessageTool: Tool<InputSchema, SendMessageToolOutput> =
 				if (addr.scheme === "uds") {
 					/* eslint-disable @typescript-eslint/no-require-imports */
 					const { sendToUdsSocket } =
-						require("../../utils/udsClient.js") as typeof import(
-							"../../utils/udsClient.js",
-						);
+						require("../../utils/udsClient.js") as typeof import("../../utils/udsClient.js");
 					/* eslint-enable @typescript-eslint/no-require-imports */
 					try {
 						await sendToUdsSocket(addr.target, input.message);

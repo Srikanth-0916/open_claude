@@ -70,9 +70,7 @@ async function getCachedMCModule(): Promise<
 	return cachedMCModule;
 }
 
-function ensureCachedMCState(): import(
-	"./cachedMicrocompact.js",
-).CachedMCState {
+function ensureCachedMCState(): import("./cachedMicrocompact.js").CachedMCState {
 	if (!cachedMCState && cachedMCModule) {
 		cachedMCState = cachedMCModule.createCachedMCState();
 	}
@@ -101,9 +99,7 @@ export function consumePendingCacheEdits():
  * Get all previously-pinned cache edits that must be re-sent at their
  * original positions for cache hits.
  */
-export function getPinnedCacheEdits(): import(
-	"./cachedMicrocompact.js",
-).PinnedCacheEdits[] {
+export function getPinnedCacheEdits(): import("./cachedMicrocompact.js").PinnedCacheEdits[] {
 	if (!cachedMCState) {
 		return [];
 	}

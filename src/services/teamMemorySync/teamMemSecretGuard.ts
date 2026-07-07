@@ -19,12 +19,8 @@ export function checkTeamMemSecrets(
 	if (feature("TEAMMEM")) {
 		/* eslint-disable @typescript-eslint/no-require-imports */
 		const { isTeamMemPath } =
-			require("../../memdir/teamMemPaths.js") as typeof import(
-				"../../memdir/teamMemPaths.js",
-			);
-		const { scanForSecrets } = require("./secretScanner.js") as typeof import(
-			"./secretScanner.js",
-		);
+			require("../../memdir/teamMemPaths.js") as typeof import("../../memdir/teamMemPaths.js");
+		const { scanForSecrets } = require("./secretScanner.js") as typeof import("./secretScanner.js");
 		/* eslint-enable @typescript-eslint/no-require-imports */
 
 		if (!isTeamMemPath(filePath)) {

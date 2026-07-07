@@ -142,15 +142,11 @@ type ListItem =
 /* eslint-disable @typescript-eslint/no-require-imports */
 const WorkflowDetailDialog = feature("WORKFLOW_SCRIPTS")
 	? (
-			require("./WorkflowDetailDialog.js") as typeof import(
-				"./WorkflowDetailDialog.js",
-			)
+			require("./WorkflowDetailDialog.js") as typeof import("./WorkflowDetailDialog.js")
 		).WorkflowDetailDialog
 	: null;
 const workflowTaskModule = feature("WORKFLOW_SCRIPTS")
-	? (require("src/tasks/LocalWorkflowTask/LocalWorkflowTask.js") as typeof import(
-			"src/tasks/LocalWorkflowTask/LocalWorkflowTask.js",
-		))
+	? (require("src/tasks/LocalWorkflowTask/LocalWorkflowTask.js") as typeof import("src/tasks/LocalWorkflowTask/LocalWorkflowTask.js"))
 	: null;
 const killWorkflowTask = workflowTaskModule?.killWorkflowTask ?? null;
 const skipWorkflowAgent = workflowTaskModule?.skipWorkflowAgent ?? null;
@@ -159,16 +155,12 @@ const retryWorkflowAgent = workflowTaskModule?.retryWorkflowAgent ?? null;
 // resolve + eliminate `./` requires, but path-mapped strings stay opaque
 // and survive as dead literals in the bundle. Matches tasks.ts pattern.
 const monitorMcpModule = feature("MONITOR_TOOL")
-	? (require("../../tasks/MonitorMcpTask/MonitorMcpTask.js") as typeof import(
-			"../../tasks/MonitorMcpTask/MonitorMcpTask.js",
-		))
+	? (require("../../tasks/MonitorMcpTask/MonitorMcpTask.js") as typeof import("../../tasks/MonitorMcpTask/MonitorMcpTask.js"))
 	: null;
 const killMonitorMcp = monitorMcpModule?.killMonitorMcp ?? null;
 const MonitorMcpDetailDialog = feature("MONITOR_TOOL")
 	? (
-			require("./MonitorMcpDetailDialog.js") as typeof import(
-				"./MonitorMcpDetailDialog.js",
-			)
+			require("./MonitorMcpDetailDialog.js") as typeof import("./MonitorMcpDetailDialog.js")
 		).MonitorMcpDetailDialog
 	: null;
 /* eslint-enable @typescript-eslint/no-require-imports */

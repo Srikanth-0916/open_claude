@@ -37,9 +37,7 @@ const getPowerShellTool = (() => {
 	return (): PromptShellTool => {
 		if (!cached) {
 			cached = (
-				require("../tools/PowerShellTool/PowerShellTool.js") as typeof import(
-					"../tools/PowerShellTool/PowerShellTool.js",
-				)
+				require("../tools/PowerShellTool/PowerShellTool.js") as typeof import("../tools/PowerShellTool/PowerShellTool.js")
 			).PowerShellTool;
 		}
 		return cached;

@@ -327,9 +327,7 @@ export async function getWithPermittedRedirects(
 		if (axios.isAxiosError(error) && error.response?.status === 402) {
 			try {
 				const { isX402Enabled, handlePaymentRequired, getX402SessionSpentUSD } =
-					require("../../services/x402/index.js") as typeof import(
-						"../../services/x402/index.js",
-					);
+					require("../../services/x402/index.js") as typeof import("../../services/x402/index.js");
 
 				const paymentHeader = error.response.headers["x-payment-required"];
 				if (isX402Enabled() && paymentHeader) {

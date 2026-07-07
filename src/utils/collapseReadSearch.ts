@@ -36,9 +36,7 @@ const teamMemOps = feature("TEAMMEM")
 	: null;
 const SNIP_TOOL_NAME = feature("HISTORY_SNIP")
 	? (
-			require("../tools/SnipTool/prompt.js") as typeof import(
-				"../tools/SnipTool/prompt.js",
-			)
+			require("../tools/SnipTool/prompt.js") as typeof import("../tools/SnipTool/prompt.js")
 		).SNIP_TOOL_NAME
 	: null;
 /* eslint-enable @typescript-eslint/no-require-imports */

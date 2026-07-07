@@ -94,9 +94,7 @@ import { PermissionRuleExplanation } from "../PermissionRuleExplanation.js";
 
 /* eslint-disable @typescript-eslint/no-require-imports */
 const autoModeStateModule = feature("TRANSCRIPT_CLASSIFIER")
-	? (require("../../../utils/permissions/autoModeState.js") as typeof import(
-			"../../../utils/permissions/autoModeState.js",
-		))
+	? (require("../../../utils/permissions/autoModeState.js") as typeof import("../../../utils/permissions/autoModeState.js"))
 	: null;
 import type {
 	Base64ImageSource,

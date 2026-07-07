@@ -115,16 +115,12 @@ const proactiveModule =
 const BRIEF_TOOL_NAME: string | null =
 	feature("KAIROS") || feature("KAIROS_BRIEF")
 		? (
-				require("../tools/BriefTool/prompt.js") as typeof import(
-					"../tools/BriefTool/prompt.js",
-				)
+				require("../tools/BriefTool/prompt.js") as typeof import("../tools/BriefTool/prompt.js")
 			).BRIEF_TOOL_NAME
 		: null;
 const SEND_USER_FILE_TOOL_NAME: string | null = feature("KAIROS")
 	? (
-			require("../tools/SendUserFileTool/prompt.js") as typeof import(
-				"../tools/SendUserFileTool/prompt.js",
-			)
+			require("../tools/SendUserFileTool/prompt.js") as typeof import("../tools/SendUserFileTool/prompt.js")
 		).SEND_USER_FILE_TOOL_NAME
 	: null;
 

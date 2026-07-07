@@ -32,9 +32,7 @@ function CollapseLabel(t0) {
 	} else {
 		t1 = $[0];
 	}
-	const { getStats, subscribe } = t1 as typeof import(
-		"../services/contextCollapse/index.js",
-	);
+	const { getStats, subscribe } = t1 as typeof import("../services/contextCollapse/index.js");
 	let t2;
 	if ($[1] === Symbol.for("react.memo_cache_sentinel")) {
 		t2 = () => {
@@ -148,9 +146,7 @@ export function TokenWarning(t0) {
 	}
 	if (feature("CONTEXT_COLLAPSE")) {
 		const { isContextCollapseEnabled } =
-			require("../services/contextCollapse/index.js") as typeof import(
-				"../services/contextCollapse/index.js",
-			);
+			require("../services/contextCollapse/index.js") as typeof import("../services/contextCollapse/index.js");
 		if (isContextCollapseEnabled()) {
 			collapseMode = true;
 		}

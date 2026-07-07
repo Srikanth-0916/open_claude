@@ -10,9 +10,7 @@ import type { PermissionRuleValue } from "./PermissionRule.js";
 const BRIEF_TOOL_NAME: string | null =
 	feature("KAIROS") || feature("KAIROS_BRIEF")
 		? (
-				require("../../tools/BriefTool/prompt.js") as typeof import(
-					"../../tools/BriefTool/prompt.js",
-				)
+				require("../../tools/BriefTool/prompt.js") as typeof import("../../tools/BriefTool/prompt.js")
 			).BRIEF_TOOL_NAME
 		: null;
 /* eslint-enable @typescript-eslint/no-require-imports */

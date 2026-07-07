@@ -61,9 +61,7 @@ import {
 
 /* eslint-disable @typescript-eslint/no-require-imports */
 const classifierDecisionModule = feature("TRANSCRIPT_CLASSIFIER")
-	? (require("./classifierDecision.js") as typeof import(
-			"./classifierDecision.js",
-		))
+	? (require("./classifierDecision.js") as typeof import("./classifierDecision.js"))
 	: null;
 const autoModeStateModule = feature("TRANSCRIPT_CLASSIFIER")
 	? (require("./autoModeState.js") as typeof import("./autoModeState.js"))

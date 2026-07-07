@@ -234,9 +234,7 @@ export function formatTotalCost(): string {
 	let x402Display = "";
 	try {
 		const { formatX402Cost } =
-			require("./services/x402/index.js") as typeof import(
-				"./services/x402/index.js",
-			);
+			require("./services/x402/index.js") as typeof import("./services/x402/index.js");
 		const x402Summary = formatX402Cost();
 		if (x402Summary) {
 			x402Display = `\n${x402Summary}`;

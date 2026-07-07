@@ -84,9 +84,7 @@ import {
 
 // Lazy: MessageSelector.tsx pulls React/ink; only needed for message filtering at query time
 /* eslint-disable @typescript-eslint/no-require-imports */
-const messageSelector = (): typeof import(
-	"src/components/MessageSelector.js",
-) => require("src/components/MessageSelector.js");
+const messageSelector = (): typeof import("src/components/MessageSelector.js") => require("src/components/MessageSelector.js");
 
 import {
 	localCommandOutputToSDKAssistantMessage,
@@ -120,14 +118,10 @@ const getCoordinatorUserContext: (
 // Dead code elimination: conditional import for snip compaction
 /* eslint-disable @typescript-eslint/no-require-imports */
 const snipModule = feature("HISTORY_SNIP")
-	? (require("./services/compact/snipCompact.js") as typeof import(
-			"./services/compact/snipCompact.js",
-		))
+	? (require("./services/compact/snipCompact.js") as typeof import("./services/compact/snipCompact.js"))
 	: null;
 const snipProjection = feature("HISTORY_SNIP")
-	? (require("./services/compact/snipProjection.js") as typeof import(
-			"./services/compact/snipProjection.js",
-		))
+	? (require("./services/compact/snipProjection.js") as typeof import("./services/compact/snipProjection.js"))
 	: null;
 /* eslint-enable @typescript-eslint/no-require-imports */
 

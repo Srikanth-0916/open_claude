@@ -30,9 +30,7 @@ function CollapseStatus() {
 			t1 = Symbol.for("react.early_return_sentinel");
 			bb0: {
 				const { getStats, isContextCollapseEnabled } =
-					require("../services/contextCollapse/index.js") as typeof import(
-						"../services/contextCollapse/index.js",
-					);
+					require("../services/contextCollapse/index.js") as typeof import("../services/contextCollapse/index.js");
 				if (!isContextCollapseEnabled()) {
 					t1 = null;
 					break bb0;

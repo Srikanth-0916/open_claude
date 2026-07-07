@@ -62,19 +62,13 @@ import { TestingPermissionTool } from "./tools/testing/TestingPermissionTool.js"
 /* eslint-disable @typescript-eslint/no-require-imports */
 const getTeamCreateTool = () =>
 	require("./tools/TeamCreateTool/TeamCreateTool.js")
-		.TeamCreateTool as typeof import(
-		"./tools/TeamCreateTool/TeamCreateTool.js",
-	).TeamCreateTool;
+		.TeamCreateTool as typeof import("./tools/TeamCreateTool/TeamCreateTool.js").TeamCreateTool;
 const getTeamDeleteTool = () =>
 	require("./tools/TeamDeleteTool/TeamDeleteTool.js")
-		.TeamDeleteTool as typeof import(
-		"./tools/TeamDeleteTool/TeamDeleteTool.js",
-	).TeamDeleteTool;
+		.TeamDeleteTool as typeof import("./tools/TeamDeleteTool/TeamDeleteTool.js").TeamDeleteTool;
 const getSendMessageTool = () =>
 	require("./tools/SendMessageTool/SendMessageTool.js")
-		.SendMessageTool as typeof import(
-		"./tools/SendMessageTool/SendMessageTool.js",
-	).SendMessageTool;
+		.SendMessageTool as typeof import("./tools/SendMessageTool/SendMessageTool.js").SendMessageTool;
 import uniqBy from "lodash-es/uniqBy.js";
 /* eslint-enable @typescript-eslint/no-require-imports */
 import { AskUserQuestionTool } from "./tools/AskUserQuestionTool/AskUserQuestionTool.js";
@@ -124,9 +118,7 @@ const WebBrowserTool = feature("WEB_BROWSER_TOOL")
 	? require("./tools/WebBrowserTool/WebBrowserTool.js").WebBrowserTool
 	: null;
 const coordinatorModeModule = feature("COORDINATOR_MODE")
-	? (require("./coordinator/coordinatorMode.js") as typeof import(
-			"./coordinator/coordinatorMode.js",
-		))
+	? (require("./coordinator/coordinatorMode.js") as typeof import("./coordinator/coordinatorMode.js"))
 	: null;
 const SnipTool = feature("HISTORY_SNIP")
 	? require("./tools/SnipTool/SnipTool.js").SnipTool
@@ -158,9 +150,7 @@ export { REPL_ONLY_TOOLS };
 const getPowerShellTool = () => {
 	if (!isPowerShellToolEnabled()) return null;
 	return (
-		require("./tools/PowerShellTool/PowerShellTool.js") as typeof import(
-			"./tools/PowerShellTool/PowerShellTool.js",
-		)
+		require("./tools/PowerShellTool/PowerShellTool.js") as typeof import("./tools/PowerShellTool/PowerShellTool.js")
 	).PowerShellTool;
 };
 /* eslint-enable @typescript-eslint/no-require-imports */

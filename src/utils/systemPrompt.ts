@@ -17,9 +17,7 @@ export { asSystemPrompt, type SystemPrompt } from "./systemPromptType.js";
 /* eslint-disable @typescript-eslint/no-require-imports */
 const proactiveModule =
 	feature("PROACTIVE") || feature("KAIROS")
-		? (require("../proactive/index.js") as typeof import(
-				"../proactive/index.js",
-			))
+		? (require("../proactive/index.js") as typeof import("../proactive/index.js"))
 		: null;
 /* eslint-enable @typescript-eslint/no-require-imports */
 
@@ -69,9 +67,7 @@ export function buildEffectiveSystemPrompt({
 		// Lazy require to avoid circular dependency at module load time
 		const { getCoordinatorSystemPrompt } =
 			// eslint-disable-next-line @typescript-eslint/no-require-imports
-			require("../coordinator/coordinatorMode.js") as typeof import(
-				"../coordinator/coordinatorMode.js",
-			);
+			require("../coordinator/coordinatorMode.js") as typeof import("../coordinator/coordinatorMode.js");
 		return asSystemPrompt([
 			getCoordinatorSystemPrompt(),
 			...(appendSystemPrompt ? [appendSystemPrompt] : []),

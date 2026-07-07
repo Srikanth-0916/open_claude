@@ -229,17 +229,13 @@ export function ResumeConversation({
 			if (feature("COORDINATOR_MODE")) {
 				/* eslint-disable @typescript-eslint/no-require-imports */
 				const coordinatorModule =
-					require("../coordinator/coordinatorMode.js") as typeof import(
-						"../coordinator/coordinatorMode.js",
-					);
+					require("../coordinator/coordinatorMode.js") as typeof import("../coordinator/coordinatorMode.js");
 				/* eslint-enable @typescript-eslint/no-require-imports */
 				const warning = coordinatorModule.matchSessionMode(result_3.mode);
 				if (warning) {
 					/* eslint-disable @typescript-eslint/no-require-imports */
 					const { getAgentDefinitionsWithOverrides, getActiveAgentsFromList } =
-						require("../tools/AgentTool/loadAgentsDir.js") as typeof import(
-							"../tools/AgentTool/loadAgentsDir.js",
-						);
+						require("../tools/AgentTool/loadAgentsDir.js") as typeof import("../tools/AgentTool/loadAgentsDir.js");
 					/* eslint-enable @typescript-eslint/no-require-imports */
 					getAgentDefinitionsWithOverrides.cache.clear?.();
 					const freshAgentDefs = await getAgentDefinitionsWithOverrides(
@@ -280,9 +276,7 @@ export function ResumeConversation({
 				/* eslint-disable @typescript-eslint/no-require-imports */
 				const { saveMode } = require("../utils/sessionStorage.js");
 				const { isCoordinatorMode } =
-					require("../coordinator/coordinatorMode.js") as typeof import(
-						"../coordinator/coordinatorMode.js",
-					);
+					require("../coordinator/coordinatorMode.js") as typeof import("../coordinator/coordinatorMode.js");
 				/* eslint-enable @typescript-eslint/no-require-imports */
 				saveMode(isCoordinatorMode() ? "coordinator" : "normal");
 			}
@@ -314,9 +308,7 @@ export function ResumeConversation({
 			if (feature("CONTEXT_COLLAPSE")) {
 				/* eslint-disable @typescript-eslint/no-require-imports */
 				(
-					require("../services/contextCollapse/persist.js") as typeof import(
-						"../services/contextCollapse/persist.js",
-					)
+					require("../services/contextCollapse/persist.js") as typeof import("../services/contextCollapse/persist.js")
 				).restoreFromEntries(
 					result_3.contextCollapseCommits ?? [],
 					result_3.contextCollapseSnapshot,

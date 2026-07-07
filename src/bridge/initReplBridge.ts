@@ -477,9 +477,7 @@ export async function initReplBridge(
 	if (feature("KAIROS")) {
 		/* eslint-disable @typescript-eslint/no-require-imports */
 		const { isAssistantMode } =
-			require("../assistant/index.js") as typeof import(
-				"../assistant/index.js",
-			);
+			require("../assistant/index.js") as typeof import("../assistant/index.js");
 		/* eslint-enable @typescript-eslint/no-require-imports */
 		if (isAssistantMode()) {
 			workerType = "claude_code_assistant";

@@ -116,9 +116,7 @@ import { getLoggingSafeMcpBaseUrl } from "./utils.js";
 /* eslint-disable @typescript-eslint/no-require-imports */
 const fetchMcpSkillsForClient = feature("MCP_SKILLS")
 	? (
-			require("../../skills/mcpSkills.js") as typeof import(
-				"../../skills/mcpSkills.js",
-			)
+			require("../../skills/mcpSkills.js") as typeof import("../../skills/mcpSkills.js")
 		).fetchMcpSkillsForClient
 	: null;
 
@@ -234,9 +232,7 @@ import { isClaudeInChromeMCPServer } from "../../utils/claudeInChrome/common.js"
 
 // Lazy: toolRendering.tsx pulls React/ink; only needed when Claude-in-Chrome MCP server is connected
 /* eslint-disable @typescript-eslint/no-require-imports */
-const claudeInChromeToolRendering = (): typeof import(
-	"../../utils/claudeInChrome/toolRendering.js",
-) => require("../../utils/claudeInChrome/toolRendering.js");
+const claudeInChromeToolRendering = (): typeof import("../../utils/claudeInChrome/toolRendering.js") => require("../../utils/claudeInChrome/toolRendering.js");
 // Lazy: wrapper.tsx → hostAdapter.ts → executor.ts pulls both native modules
 // (@ant/computer-use-input + @ant/computer-use-swift). Runtime-gated by
 // GrowthBook tengu_malort_pedway (see gates.ts).
@@ -246,9 +242,7 @@ const computerUseWrapper = feature("CHICAGO_MCP")
 	: undefined;
 const isComputerUseMCPServer = feature("CHICAGO_MCP")
 	? (
-			require("../../utils/computerUse/common.js") as typeof import(
-				"../../utils/computerUse/common.js",
-			)
+			require("../../utils/computerUse/common.js") as typeof import("../../utils/computerUse/common.js")
 		).isComputerUseMCPServer
 	: undefined;
 

@@ -263,9 +263,7 @@ function signEIP712(
 
 	// Use secp256k1 ECDSA signing
 	// Node.js crypto sign with EC key
-	const { createPrivateKey } = require("node:crypto") as typeof import(
-		"crypto",
-	);
+	const { createPrivateKey } = require("node:crypto") as typeof import("crypto");
 
 	// DER prefix for secp256k1 private key
 	const derPrefix = Buffer.from("30740201010420", "hex");

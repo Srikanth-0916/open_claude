@@ -95,18 +95,12 @@ import type { TodoList } from "./todo/types.js";
 const skillSearchModules = feature("EXPERIMENTAL_SKILL_SEARCH")
 	? {
 			featureCheck:
-				require("../services/skillSearch/featureCheck.js") as typeof import(
-					"../services/skillSearch/featureCheck.js",
-				),
-			prefetch: require("../services/skillSearch/prefetch.js") as typeof import(
-				"../services/skillSearch/prefetch.js",
-			),
+				require("../services/skillSearch/featureCheck.js") as typeof import("../services/skillSearch/featureCheck.js"),
+			prefetch: require("../services/skillSearch/prefetch.js") as typeof import("../services/skillSearch/prefetch.js"),
 		}
 	: null;
 const autoModeStateModule = feature("TRANSCRIPT_CLASSIFIER")
-	? (require("./permissions/autoModeState.js") as typeof import(
-			"./permissions/autoModeState.js",
-		))
+	? (require("./permissions/autoModeState.js") as typeof import("./permissions/autoModeState.js"))
 	: null;
 import { feature } from "bun:bundle";
 import type {
@@ -205,15 +199,11 @@ import {
 const BRIEF_TOOL_NAME: string | null =
 	feature("KAIROS") || feature("KAIROS_BRIEF")
 		? (
-				require("../tools/BriefTool/prompt.js") as typeof import(
-					"../tools/BriefTool/prompt.js",
-				)
+				require("../tools/BriefTool/prompt.js") as typeof import("../tools/BriefTool/prompt.js")
 			).BRIEF_TOOL_NAME
 		: null;
 const sessionTranscriptModule = feature("KAIROS")
-	? (require("../services/sessionTranscript/sessionTranscript.js") as typeof import(
-			"../services/sessionTranscript/sessionTranscript.js",
-		))
+	? (require("../services/sessionTranscript/sessionTranscript.js") as typeof import("../services/sessionTranscript/sessionTranscript.js"))
 	: null;
 import { getCompanionIntroAttachment } from "../buddy/prompt.js";
 import { PDF_AT_MENTION_INLINE_THRESHOLD } from "../constants/apiLimits.js";
@@ -4001,9 +3991,7 @@ export function getContextEfficiencyAttachment(
 	// isn't in the tool list. Lazy require keeps this file snip-string-free.
 	const { isSnipRuntimeEnabled, shouldNudgeForSnips } =
 		// eslint-disable-next-line @typescript-eslint/no-require-imports
-		require("../services/compact/snipCompact.js") as typeof import(
-			"../services/compact/snipCompact.js",
-		);
+		require("../services/compact/snipCompact.js") as typeof import("../services/compact/snipCompact.js");
 	if (!isSnipRuntimeEnabled()) {
 		return [];
 	}

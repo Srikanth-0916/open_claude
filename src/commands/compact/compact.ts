@@ -33,9 +33,7 @@ import {
 
 /* eslint-disable @typescript-eslint/no-require-imports */
 const reactiveCompact = feature("REACTIVE_COMPACT")
-	? (require("../../services/compact/reactiveCompact.js") as typeof import(
-			"../../services/compact/reactiveCompact.js",
-		))
+	? (require("../../services/compact/reactiveCompact.js") as typeof import("../../services/compact/reactiveCompact.js"))
 	: null;
 /* eslint-enable @typescript-eslint/no-require-imports */
 

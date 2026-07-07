@@ -20,9 +20,7 @@ export function isPrActivitySubscriptionTool(name: string): boolean {
 // Dead code elimination: conditional imports for feature-gated modules
 /* eslint-disable @typescript-eslint/no-require-imports */
 const coordinatorModeModule = feature("COORDINATOR_MODE")
-	? (require("../coordinator/coordinatorMode.js") as typeof import(
-			"../coordinator/coordinatorMode.js",
-		))
+	? (require("../coordinator/coordinatorMode.js") as typeof import("../coordinator/coordinatorMode.js"))
 	: null;
 /* eslint-enable @typescript-eslint/no-require-imports */
 

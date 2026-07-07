@@ -9,16 +9,12 @@ import { AGENT_TOOL_NAME } from "../AgentTool/constants.js";
 const BRIEF_TOOL_NAME: string | null =
 	feature("KAIROS") || feature("KAIROS_BRIEF")
 		? (
-				require("../BriefTool/prompt.js") as typeof import(
-					"../BriefTool/prompt.js",
-				)
+				require("../BriefTool/prompt.js") as typeof import("../BriefTool/prompt.js")
 			).BRIEF_TOOL_NAME
 		: null;
 const SEND_USER_FILE_TOOL_NAME: string | null = feature("KAIROS")
 	? (
-			require("../SendUserFileTool/prompt.js") as typeof import(
-				"../SendUserFileTool/prompt.js",
-			)
+			require("../SendUserFileTool/prompt.js") as typeof import("../SendUserFileTool/prompt.js")
 		).SEND_USER_FILE_TOOL_NAME
 	: null;
 
