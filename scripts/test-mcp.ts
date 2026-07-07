@@ -41,7 +41,8 @@ function jsonPretty(obj: unknown): string {
 // ── Main ──────────────────────────────────────────────────────────────────
 
 async function main() {
-  const serverScript = resolve(PROJECT_ROOT, "mcp-server", "dist", "index.js");
+  // MCP server lives in the parent claude-code directory
+  const serverScript = resolve(PROJECT_ROOT, "..", "claude-code", "mcp-server", "dist", "src", "index.js");
   const srcRoot = resolve(PROJECT_ROOT, "src");
 
   section("1. Spawning MCP server (stdio transport)");
